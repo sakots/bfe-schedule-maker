@@ -53,13 +53,14 @@ export function drawSchedule(canvas, schedule, header) {
 
   schedule.days.forEach((day, index) => {
     const y = 414 + index * 110;
+    const dayColor = day.off ? '#eb579d' : '#18bcb6';
     roundedRect(ctx, 15, y + 5, 1170, 102, 28, '#00000022');
     roundedRect(ctx, 12, y, 1170, 102, 28, '#fffffff5');
     ctx.save();
     ctx.beginPath();
     ctx.roundRect(12, y, 1170, 102, 28);
     ctx.clip();
-    ctx.fillStyle = day.off ? '#eb579d' : '#18bcb6';
+    ctx.fillStyle = dayColor;
     ctx.beginPath();
     ctx.moveTo(12, y);
     ctx.lineTo(290, y);
@@ -72,8 +73,13 @@ export function drawSchedule(canvas, schedule, header) {
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.arc(55, y + 51, 31, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = dayColor;
     ctx.font = `800 42px ${FONT}`;
     ctx.fillText(WEEKDAYS[index], 55, y + 51);
+    ctx.fillStyle = '#ffffff';
     ctx.font = `750 38px ${FONT}`;
     ctx.fillText(shortDate(schedule.dates[index]), 157, y + 51);
 
