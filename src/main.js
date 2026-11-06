@@ -23,7 +23,7 @@ let exporting = false;
 
 schedule.days.forEach((day, index) => {
   const row = document.createElement('div');
-  row.className = `day-row${index >= 5 ? ' weekend' : ''}`;
+  row.className = `day-row${day.off ? ' is-off' : ''}`;
   row.innerHTML = `<div class="day-row-heading"><label for="content-${index}" class="day-label"><span class="weekday">${WEEKDAYS[index]}</span><span class="day-date"></span><span class="sr-only">の予定</span></label><label class="off-control"><input type="checkbox" id="off-${index}" aria-label="${WEEKDAYS[index]}曜日を休みにする" /><span class="switch" aria-hidden="true"></span>休み</label></div><input type="text" id="content-${index}" maxlength="80" placeholder="例：11:00〜12:00 参加型配信" />`;
   const contentInput = row.querySelector('input[type="text"]');
   const offInput = row.querySelector('input[type="checkbox"]');
@@ -37,6 +37,7 @@ schedule.days.forEach((day, index) => {
   offInput.addEventListener('change', () => {
     day.off = offInput.checked;
     contentInput.disabled = day.off;
+    row.classList.toggle('is-off', day.off);
     render();
   });
   fields.append(row);
