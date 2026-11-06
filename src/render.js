@@ -59,7 +59,7 @@ export function drawSchedule(canvas, schedule, header) {
     ctx.beginPath();
     ctx.roundRect(12, y, 1170, 102, 28);
     ctx.clip();
-    ctx.fillStyle = index >= 5 ? '#eb579d' : '#18bcb6';
+    ctx.fillStyle = day.off ? '#eb579d' : '#18bcb6';
     ctx.beginPath();
     ctx.moveTo(12, y);
     ctx.lineTo(290, y);

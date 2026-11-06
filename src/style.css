@@ -50,7 +50,7 @@ input:focus-visible, select:focus-visible, button:focus-visible, a:focus-visible
 .day-row-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
 .day-label { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 12px; }
 .weekday { display: grid; place-items: center; width: 27px; height: 27px; border-radius: 8px; background: #e4f6f1; color: #0a827e; font-size: 13px; }
-.weekend .weekday { color: #b13f77; background: #fce9f3; }
+.is-off .weekday { color: #b13f77; background: #fce9f3; }
 .day-date { font-variant-numeric: tabular-nums; }
 .off-control { display: flex; align-items: center; gap: 7px; font-size: 11px; color: var(--muted); cursor: pointer; position: relative; min-height: 28px; }
 .off-control input { position: absolute; left: 0; width: 29px; height: 28px; margin: 0; opacity: 0; }
